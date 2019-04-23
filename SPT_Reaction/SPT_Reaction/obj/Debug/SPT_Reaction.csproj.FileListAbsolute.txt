@@ -1,0 +1,10 @@
+C:\Users\zpvrb\source\repos\SPT_Reaction\SPT_Reaction\bin\Debug\SPT_Reaction.exe.config
+C:\Users\zpvrb\source\repos\SPT_Reaction\SPT_Reaction\bin\Debug\SPT_Reaction.exe
+C:\Users\zpvrb\source\repos\SPT_Reaction\SPT_Reaction\bin\Debug\SPT_Reaction.pdb
+C:\Users\zpvrb\source\repos\SPT_Reaction\SPT_Reaction\obj\Debug\SPT_Reaction.csprojAssemblyReference.cache
+C:\Users\zpvrb\source\repos\SPT_Reaction\SPT_Reaction\obj\Debug\SPT_Reaction.Properties.Resources.resources
+C:\Users\zpvrb\source\repos\SPT_Reaction\SPT_Reaction\obj\Debug\SPT_Reaction.csproj.GenerateResource.cache
+C:\Users\zpvrb\source\repos\SPT_Reaction\SPT_Reaction\obj\Debug\SPT_Reaction.csproj.CoreCompileInputs.cache
+C:\Users\zpvrb\source\repos\SPT_Reaction\SPT_Reaction\obj\Debug\SPT_Reaction.exe
+C:\Users\zpvrb\source\repos\SPT_Reaction\SPT_Reaction\obj\Debug\SPT_Reaction.pdb
+C:\Users\zpvrb\source\repos\SPT_Reaction\SPT_Reaction\obj\Debug\SPT_Reaction.RichTextBoxExtensions.resources
