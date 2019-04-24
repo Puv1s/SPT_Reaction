@@ -125,8 +125,8 @@ namespace SPT_Reaction
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Reakcni doba";
+            this.Text = "Reakcni doba";
             this.ResumeLayout(false);
 
         }
