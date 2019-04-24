@@ -96,6 +96,7 @@ namespace SPT_Reaction
             richTextBox4.Text = "";
             problem = new Problem();
             totalTime = 0;
+            counter = 1;
         }
         //Pri zmene textového poľa pre zadávanie výsledkov
         private void richTextBox4_KeyUp(object sender, KeyPressEventArgs e)
