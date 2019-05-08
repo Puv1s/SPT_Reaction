@@ -10,50 +10,90 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
 
+/*! \mainpage Reaction Time Game
+ *
+ * \section intro_sec Introdukcia
+ *
+ * Reakčná hra pre zistenie vašich matematických schopností.
+ *
+ * \section install_sec Vstupy
+ *
+ * \subsection step1 Vstup 1:
+ * Vstupom je reakcia uživatela na príklady v podobe zadaných výsledkov.
+ *
+ * \section install_sec Výstupy
+ *
+ * \subsection vystup1 Výstup 1: 
+ * Informacie o úspěšnosti (kolkokrát bylo odpovedané).
+ *
+ * \subsection vystup2 Výstup 2: 
+ * Informacie o priemernej reakčnej dobe.
+ */
+
 namespace SPT_Reaction
 {
-    //stopwatch class pre multithread podporu aka. počítanie času medzi funkciami
+    /// <summary>
+    /// Stopwatch class pre multithread podporu, počítanie času medzi funkciami.
+    /// </summary>
     public class StopwatchProxy
     {
-        private Stopwatch _stopwatch;
-        private static readonly StopwatchProxy _stopwatchProxy = new StopwatchProxy();
+        private Stopwatch _stopwatch; //!< Privátna instancia stopwatch
 
+        private static readonly StopwatchProxy _stopwatchProxy = new StopwatchProxy();
         private StopwatchProxy()
         {
             _stopwatch = new Stopwatch();
         }
 
-        public Stopwatch Stopwatch { get { return _stopwatch; } }
+        public Stopwatch Stopwatch { get { return _stopwatch; } } //!< Verejná instancia stopwatch
 
+        /// <summary>
+        /// Stopwatch inicializátor.
+        /// <return>Instancia stopwatch.</return>
+        /// </summary>
         public static StopwatchProxy Instance
         {
             get { return _stopwatchProxy; }
         }
     }
-    
-    //Main form class
+
+    /// <summary>
+    /// Main form trieda.
+    /// </summary>
     public partial class Form1 : Form
     {
         //vytvorenie premenných
-        public static Problem problem = new Problem();
-        public static int counter = 1;
-        public static long[] reactionTimes = new long[5];
-        public static long reactionTime = 0;
-        public static long totalTime = 0;
-        public static int result = 0;
+        public static Problem problem = new Problem();  //!< Objekt problému
+        public static int counter = 1;  //!< Počítadlo pre počet úspešných príkladov
+        public static long[] reactionTimes = new long[5];  //!< Pole reakčných časov
+        public static long reactionTime = 0;  //!< Priebežný reakčný čas
+        public static long totalTime = 0;  //!< Celkový uplynutý čas
+        public static int result = 0;  //!< Výsledok príkladu
 
+        /// <summary>
+        /// Inicializácia formy, disable stopButton pre zamedzenie pokusu o vypnutie nebežiacej hry.
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
+            stopButton.Enabled = false;
         }
-        
-        //Zmena focusu pri spustení formy
+
+        /// <summary>
+        /// Zmena focusu pri spustení formy.
+        /// <param name="sender">Objekt daného eventu.</param>
+        /// <param name="e">Parametre eventu.</param>
+        /// </summary>
         private void richTextBox1_Enter(object sender, EventArgs e)
         {
             label1.Focus();
         }
 
-        //button pre začiatok reakčnej hry, spustí sa stopwatch pre meranie reakčnej doby a zobrazí sa prvý príklad
+        /// <summary>
+        /// Event pre button pre začiatok reakčnej hry, spustí sa stopwatch pre meranie reakčnej doby a zobrazí sa prvý príklad.
+        /// <param name="sender">Objekt daného eventu.</param>
+        /// <param name="e">Parametre eventu.</param>
+        /// </summary>
         private void startButton_Click(object sender, EventArgs e)
         {
             //kontrola či ešte hra nie je v behu
@@ -83,7 +123,12 @@ namespace SPT_Reaction
                     break;
             }
         }
-        //button pre ukončenie, vymažú sa všetky textboxy a zobrazí sa konečná reakčná doba
+
+        /// <summary>
+        /// Event pre button pre ukončenie, vymažú sa všetky textboxy a zobrazí sa konečná reakčná doba
+        /// <param name="sender">Objekt daného eventu.</param>
+        /// <param name="e">Parametre eventu.</param>
+        /// </summary>
         private void stopButton_Click(object sender, EventArgs e)
         {
             //zabránenie aby bol stop button stlačený znova
@@ -98,7 +143,12 @@ namespace SPT_Reaction
             totalTime = 0;
             counter = 1;
         }
-        //Pri zmene textového poľa pre zadávanie výsledkov
+
+        /// <summary>
+        /// Event pri zmene textového poľa pre zadávanie výsledkov
+        /// <param name="sender">Objekt daného eventu.</param>
+        /// <param name="e">Parametre eventu.</param>
+        /// </summary>
         private void richTextBox4_KeyUp(object sender, KeyPressEventArgs e)
         {
             //Ak je stlačený enter skontroluj výsledok
